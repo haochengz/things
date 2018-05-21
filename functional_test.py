@@ -18,19 +18,19 @@ class FunctionalTest(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def test_server_started(self):
-        """
-        Test Server was started
-        """
-        self.browser.get("http://127.0.0.1:8000")
-        self.assertIn('Django', self.browser.title)
-
     def reset_browser(self):
         """
         Create a new headless browser and close the one before
         """
         self.browser.quit()
         self.browser = create_browser()
+
+    def test_server_renders_index_page(self):
+        """
+        Test Server was started
+        """
+        self.browser.get("http://127.0.0.1:8000")
+        self.assertIn('To-do', self.browser.title)
 
 
 def create_browser():

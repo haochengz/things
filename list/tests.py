@@ -1,5 +1,8 @@
 
 from django.test import TestCase
+from django.urls import resolve
+
+from .views import index_page
 
 
 class SomeTest(TestCase):
@@ -10,5 +13,6 @@ class SomeTest(TestCase):
     def tearDown(self):
         pass
 
-    def test_fail(self):
-        self.fail("Unit test runs")
+    def test_url_resolve(self):
+        found = resolve('/')
+        self.assertEqual(found.func, index_page)

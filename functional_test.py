@@ -6,6 +6,8 @@ This Module include the TestCase of the website
 import unittest
 from selenium import webdriver
 
+from vars import addr
+
 
 class FunctionalTest(unittest.TestCase):
     """
@@ -29,7 +31,7 @@ class FunctionalTest(unittest.TestCase):
         """
         Test Server was started
         """
-        self.browser.get("http://127.0.0.1:8000")
+        self.browser.get(addr)
         self.assertIn('To-do', self.browser.title)
 
 

@@ -21,6 +21,6 @@ class SomeTest(TestCase):
     def test_index_view_returns_html_page(self):
         request = HttpRequest()
         response = index_page(request)
-        self.assertTrue(response.content.startswith(b'<html>'))
-        self.assertIn("<title>To-do things</title>", response.content.decode())
+        self.assertTrue(response.content.startswith(b'<!DOCTYPE html>'))
+        self.assertIn("<title>To-do Things</title>", response.content.decode())
         self.assertTrue(response.content.endswith(b'</html>'))

@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.urls import resolve
 from django.http import HttpRequest
 
-from .views import index_page
+from .views import IndexView
 
 
 class SomeTest(TestCase):
@@ -16,11 +16,8 @@ class SomeTest(TestCase):
 
     def test_url_resolve(self):
         found = resolve('/')
-        self.assertEqual(found.func, index_page)
+        self.assertEqual(found.func.view_class, IndexView)
 
     def test_index_view_returns_html_page(self):
-        request = HttpRequest()
-        response = index_page(request)
-        self.assertTrue(response.content.startswith(b'<!DOCTYPE html>'))
-        self.assertIn("<title>To-do Things</title>", response.content.decode())
-        self.assertTrue(response.content.endswith(b'</html>'))
+        resp = self.client.get("/")
+        self.assertTemplateUsed(resp, "index.html")

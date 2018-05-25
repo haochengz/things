@@ -41,6 +41,7 @@ class FunctionalTest(unittest.TestCase):
         inputbox.send_keys("Buy peacock feathers")
         inputbox.send_keys(Keys.ENTER)
 
+        self.browser.get('http://127.0.0.1:8000')
         table = self.browser.find_element_by_id("list_table")
         rows = table.find_elements_by_tag_name("tr")
         self.assertTrue(

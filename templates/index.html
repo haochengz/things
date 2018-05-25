@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-do Things</title>
+</head>
+<body>
+    <h1>To-do APP Awesome</h1>
+    <div>
+        <div>
+            <form action="/" method="POST">
+                <input name="new_item" id="new_item" placeholder="Enter a to-do item">
+                <input type="submit" value="SUBMIT">
+                {% csrf_token %}
+            </form>
+        </div>
+        <div>
+            <table id="list_table">
+                    {% for item in list %}
+                    <tr>
+                        <td>1: {{ item }}</td>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

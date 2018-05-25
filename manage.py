@@ -1,4 +1,6 @@
-#!/usr/bin/env python
+
+#!/Users/hczhao/anaconda3/envs/django/bin/python
+
 import os
 import sys
 

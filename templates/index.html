@@ -8,7 +8,7 @@
     <h1>To-do APP Awesome</h1>
     <div>
         <div>
-            <form action="/" method="POST">
+            <form action="{% url 'index' %}'" method="POST">
                 <input name="new_item" id="new_item" placeholder="Enter a to-do item">
                 <input type="submit" value="SUBMIT">
                 {% csrf_token %}

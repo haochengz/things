@@ -44,9 +44,7 @@ class FunctionalTest(unittest.TestCase):
         self.browser.get('http://127.0.0.1:8000')
         table = self.browser.find_element_by_id("list_table")
         rows = table.find_elements_by_tag_name("tr")
-        self.assertTrue(
-            any(row.text == '1: Buy peacock feathers' for row in rows)
-        )
+        self.assertIn("1: Buy peacock feathers", [row.text for row in rows])
 
 
 def create_browser():
